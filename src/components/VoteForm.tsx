@@ -4,6 +4,7 @@ import { useVotes } from "../hooks/useVotes";
 import { supabase } from "../supabase/client";
 import { Toaster, toast } from "react-hot-toast";
 import { useStore } from "../context/useStore";
+import {candidates} from '../data/candidates'
 
 export default function VoteForm() {
   const [form, setForm] = useState<IFormVotes>(initialValues);
@@ -90,11 +91,7 @@ export default function VoteForm() {
             className="w-full border text-sm p-2 text-left rounded-md outline-none focus:border-blue-600 focus:border-2"
           >
             <option value="">--SELECCIONAR--</option>
-            <option value="1">Persona 1</option>
-            <option value="2">Persona 2</option>
-            <option value="3">Persona 3</option>
-            <option value="4">Persona 4</option>
-            <option value="5">Persona 5</option>
+            {candidates.map((el, index)=> <option key={index} value={el.id}>{el.name}</option>)}
           </select>
         </div>
         <div className="w-[90%]">
@@ -112,11 +109,7 @@ export default function VoteForm() {
             className="w-full border text-sm p-2 text-left rounded-md outline-none focus:border-blue-600 focus:border-2"
           >
             <option value="">--SELECCIONAR--</option>
-            <option value="1">Persona 1</option>
-            <option value="2">Persona 2</option>
-            <option value="3">Persona 3</option>
-            <option value="4">Persona 4</option>
-            <option value="5">Persona 5</option>
+            {candidates.map((el, index)=> <option key={index} value={el.id}>{el.name}</option>)}
           </select>
         </div>
         <div className="w-[90%]">
@@ -134,11 +127,7 @@ export default function VoteForm() {
             className="w-full border text-sm p-2 text-left rounded-md outline-none focus:border-blue-600 focus:border-2"
           >
             <option value="">--SELECCIONAR--</option>
-            <option value="1">Persona 1</option>
-            <option value="2">Persona 2</option>
-            <option value="3">Persona 3</option>
-            <option value="4">Persona 4</option>
-            <option value="5">Persona 5</option>
+            {candidates.map((el, index)=> <option key={index} value={el.id}>{el.name}</option>)}
           </select>
         </div>
         <div className="w-[90%]">
@@ -156,11 +145,7 @@ export default function VoteForm() {
             className="w-full border text-sm p-2 text-left rounded-md outline-none focus:border-blue-600 focus:border-2"
           >
             <option value="">--SELECCIONAR--</option>
-            <option value="1">Persona 1</option>
-            <option value="2">Persona 2</option>
-            <option value="3">Persona 3</option>
-            <option value="4">Persona 4</option>
-            <option value="5">Persona 5</option>
+            {candidates.map((el, index)=> <option key={index} value={el.id}>{el.name}</option>)}
           </select>
         </div>
         <button className="w-[80%] p-1 text-sm transition-all cursor-pointer hover:bg-green-800 bg-green-600 text-white mt-4 rounded-md font-semibold">
