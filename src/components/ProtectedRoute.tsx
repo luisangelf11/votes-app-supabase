@@ -7,6 +7,6 @@ type Props = {
 
 export default function ProtectedRoute({ children }: Props) {
   const { registration } = useStore();
-  if (registration === null) return <Navigate to="/login" />;
+  if (registration === null || registration === '') return <Navigate to="/login" />;
   else return <>{children}</>;
 }
