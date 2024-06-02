@@ -2,7 +2,7 @@ import VoteForm from "../components/VoteForm";
 
 export default function Votes() {
   return (
-    <div>
+    <div className="w-full h-screen flex justify-center items-center">
       <VoteForm />
     </div>
   );
