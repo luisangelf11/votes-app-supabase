@@ -9,7 +9,7 @@ type Store = {
 export const useStore = create<Store>()((set) => ({
   registration: null,
   login: (data: string) => set({ registration: data }),
-  logout: () => set({ registration: "" }),
+  logout: () => set({ registration: null }),
 }));
 
 

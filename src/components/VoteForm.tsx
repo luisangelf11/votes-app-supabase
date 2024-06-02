@@ -53,7 +53,7 @@ export default function VoteForm() {
     <>
       <form
         onSubmit={handleSubmit}
-        className="w-[300px] h-auto flex flex-col gap-2 p-4 items-center justify-center shadow-xl rounded-lg"
+        className="w-[300px] mt-4 h-auto flex flex-col gap-2 p-4 items-center justify-center shadow-xl rounded-lg"
       >
         <h2 className="font-bold text-blue-600 uppercase flex flex-col justify-center items-center">
           <svg

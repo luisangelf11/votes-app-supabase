@@ -18,10 +18,10 @@ export default function Login() {
   };
 
   return (
-    <div className="w-full h-screen flex justify-center items-center">
+    <div className="w-full flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className="w-[300px] h-auto flex flex-col gap-2 p-4 items-center justify-center shadow-xl rounded-lg"
+        className="w-[300px] mt-4 h-auto flex flex-col gap-2 p-4 items-center justify-center shadow-xl rounded-lg"
       >
         <h2 className="font-bold uppercase text-xl text-blue-700 p-2">
           Iniciar sesión
