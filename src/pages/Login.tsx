@@ -1,20 +1,30 @@
 import { useState } from "react";
 import { useStore } from "../context/useStore";
 import { useNavigate } from "react-router-dom";
+import { useLogin } from "../hooks/useLogin";
+import {Toaster, toast} from 'react-hot-toast'
 
 export default function Login() {
   const [registration, setRegistration] = useState<string>("");
   const { login } = useStore();
   const navigate = useNavigate();
+  const { loginUser } = useLogin();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRegistration(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    login(registration);
-    navigate("/");
+    try {
+      const user = await loginUser(registration);
+      if (user) {
+        login(registration);
+        navigate("/");
+      }else toast.error('¡Usted no se encuentra en el sistema!');
+    } catch (error) {
+      if (error instanceof Error) console.error(error.message);
+    }
   };
 
   return (
@@ -61,6 +71,7 @@ export default function Login() {
           Entrar
         </button>
       </form>
+      <Toaster position="top-center" />
     </div>
   );
 }

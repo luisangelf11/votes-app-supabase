@@ -11,7 +11,7 @@ export const candidates: Array<ICandidate> = [
     },
     {
         id: 3,
-        name: 'Luis Angel'
+        name: 'Luis Angel Regalado'
     },
     {
         id: 4,
@@ -19,7 +19,7 @@ export const candidates: Array<ICandidate> = [
     },
     {
         id: 5,
-        name: 'Bonifacio'
+        name: 'Oscar'
     },
     {
         id: 6,
