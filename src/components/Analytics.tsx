@@ -2,6 +2,7 @@ import { VictoryChart, VictoryBar } from "victory";
 import { supabase } from "../supabase/client";
 import { useEffect, useState } from "react";
 import { candidates } from "../data/candidates";
+import CardCandidate from "./CardCandidate";
 
 type Vote = {
     label: number;
@@ -21,9 +22,9 @@ export default function Analytics() {
             const orConditions = columns.map(column => `${column}.eq.${i}`).join(',');
             const { data } = await supabase.from('votes').select('*').or(orConditions);
             const vote: Vote = {
-              label: data?.length ?? 0,
+              label: data?.length  || 0,
               x: candidates[i - 1].name,
-              y: data?.length ?? 0
+              y: data?.length || 0
             };
             fetchedVotes.push(vote);
           }
@@ -43,7 +44,12 @@ export default function Analytics() {
     }, []);
 
   return (
-    <div className="w-full h-[300px]">
+    <div className="w-full flex-col flex justify-center items-center gap-3 mt-2">
+      
+      <div className="flex justify-center items-center gap-4 flex-wrap w-[80%]">
+      {votes.map((el, index)=> <CardCandidate title={el.x} votes={el.y} key={index} />)}
+      </div>
+      <div className="w-full h-[300px]">
       <VictoryChart domainPadding={{x: 10, y: 20}}>
         <VictoryBar
         horizontal
@@ -51,6 +57,7 @@ export default function Analytics() {
           data={votes}
         />
       </VictoryChart>
+      </div>
     </div>
   );
 }
